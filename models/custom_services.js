@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   // eslint-disable-next-line camelcase
   const Custom_serives = sequelize.define("Custom_serives", {
@@ -10,6 +11,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  // eslint-disable-next-line camelcase
+  ////Creating Custom_Services Association
+  Custom_serives.associate = function(models) {
+    Custom_serives.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Custom_serives;
 };
