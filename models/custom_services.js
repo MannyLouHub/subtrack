@@ -9,5 +9,13 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     }
   });
+  ////Creating Custom_Services Association
+  Custom_serives.associate = function (models){
+    Custom_serives.belongsTo(models.User, {
+      foreignKey: {
+        allowNull:false,
+      }
+    })
+  }
   return Custom_serives;
 };
