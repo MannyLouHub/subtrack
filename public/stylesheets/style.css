@@ -1,4 +1,59 @@
 form.signup,
 form.login {
-  margin-top: 50px;
+    margin-top: 50px;
+}
+
+orm.signup,
+form.login {
+    margin-top: 50px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+.module {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Users/Power/subtrack/public/randomsubs.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    margin: 10px 0 0 10px;
+    position: relative;
+    float: left;
+}
+
+.top h2 {
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+.lr p {
+    font-family: cursive;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    margin: 0;
+}
+
+.mid h2 {
+    font-family: cursive;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+}
+
+.cap p {
+    padding: 20px;
+    color: white;
+    font: 12px Monaco, Mono-Space;
+    margin: 0;
+}
+
+.row {
+    align-items: center;
+    text-align: center;
 }
