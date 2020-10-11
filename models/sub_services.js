@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable quotes */
+/* eslint-disable camelcase */
 module.exports = function (sequelize, DataTypes) {
   const Sub_serives = sequelize.define('Sub_Services', {
     name: {
