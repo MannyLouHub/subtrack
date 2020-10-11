@@ -3,11 +3,6 @@ form.login {
     margin-top: 50px;
 }
 
-orm.signup,
-form.login {
-    margin-top: 50px;
-}
-
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
 .module {
     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Users/Power/subtrack/public/randomsubs.jpg);
