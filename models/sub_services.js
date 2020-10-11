@@ -12,5 +12,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     }
   });
+  Sub_serives.associate = function (models) {
+    Sub_serives.hasMany(models.User_subs, {
+      foreignKey: {
+        allowNull: false,
+      }
+    })
+  }
   return Sub_serives;
 };
