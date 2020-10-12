@@ -2,33 +2,95 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/logout">
         Logout
       </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>Welcome <span class="member-name"></span></h2>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
-  <div class="container">
+    <br>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
+        <!--The users subscriptions-->
+        <div class="col-md-6">
+            <h4>Your Subscriptions</h4>
+            <hr>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Netflix</h5>
+                    <a href="#" class="btn btn-primary">Remove</a>
+                </div>
+            </div>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Amazon Prime</h5>
+                    <a href="#" class="btn btn-primary">Remove</a>
+                </div>
+            </div>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Hulu</h5>
+                    <a href="#" class="btn btn-primary">Remove</a>
+                </div>
+            </div>
+        </div>
+        <!--Subscriptions they could add-->
+        <div class="col-md-6">
+            <h4>Add A New Subscription</h4>
+            <hr>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Disney+</h5>
+                    <a href="#" class="btn btn-primary">Add Subscripion</a>
+                </div>
+            </div>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Uber Pass</h5>
+                    <a href="#" class="btn btn-primary">Add Subscripion</a>
+                </div>
+            </div>
+            <div class="card w-50">
+                <div class="card-body">
+                    <h5 class="card-title">Youtube TV</h5>
+                    <a href="#" class="btn btn-primary">Add Subscription</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
+    <br>
+    <br>
+    <br>
+    <div class="card text-center">
+        <div class="card-header">
+            Custom Subscription
+        </div>
+        <div class="card-body">
+            <p class="card-text">Have a Subscription you don't see? Don't worry, you can add an custom subscription here. </p>
+            <a href="#/Users/Power/subtrack/public/custom_services.html" class="btn btn-primary">Add Your Subscription Here!</a>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="js/members.js"></script>
 
 </body>
 
