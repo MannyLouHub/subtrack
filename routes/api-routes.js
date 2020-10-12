@@ -51,11 +51,11 @@ module.exports = function(app) {
       });
     }
   });
-  app.post("/api/custom_services", isAuthenticated, (req, res)  => {
+  app.post("/api/custom_services", isAuthenticated, (req,res) => {
     db.Custom_serives.create({
       name: req.body.name,
       price: req.body.price,
       UserId: req.user.id
-    })
-  })
+    });
+  });
 };
