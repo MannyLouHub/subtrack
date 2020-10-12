@@ -7,9 +7,11 @@ $(() => {
     event.preventDefault();
 
     const customSub = {
-      custom_name: $("#customSub")
-        .val()
-        .trim()
+      // custom_name: $("#customSub")
+      //   .val()
+      //   .trim()
+      name: $('#customName-input').val().trim(),
+      price: $('#customPrice-input').val().trim(),
     };
 
     // Send the POST request.

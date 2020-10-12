@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -50,4 +51,11 @@ module.exports = function(app) {
       });
     }
   });
+  app.post("/api/custom_services", isAuthenticated, (req, res)  => {
+    db.Custom_serives.create({
+      name: req.body.name,
+      price: req.body.price,
+      UserId: req.user.id
+    })
+  })
 };
