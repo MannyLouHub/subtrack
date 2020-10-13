@@ -58,4 +58,9 @@ module.exports = function(app) {
       UserId: req.user.id
     })
   })
+  app.get("/api/members", isAuthenticated, (req, res) => {
+    db.Sub_Services.findAll().then(function(dbSubs){
+      res.json(dbSubs);
+    })
+  })
 };
