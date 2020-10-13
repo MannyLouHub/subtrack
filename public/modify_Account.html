@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Modify Account</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/logout">
+          Logout
+        </a>
+      </div>
+    </div>
+    <div>
+  </nav>
+  <div class="container" id="modifyAccount">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2>Modify your Account <span class="member-name"></span></h2>
+        <div>
+          <div class="form-group">
+            <label for="text">Change Password</label>
+            <input type="" class="form-control" id="newPassword-input" placeholder="Enter New Password">
+            <button type="submit" class="btn btn-default"> Change Password</button>
+          </div>
+          <!--Delete Button-->
+          <button onclick="document.getElementById('id01').style.display='block'"class="btn btn-danger">Delete Account</button>
+
+          <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+            <form class="modal-content" action="/action_page.php"id="clearBox">
+              <div class="container">
+                <h1>Delete Account</h1>
+                <p>Are you sure you want to delete your account?</p>
+
+                <div class="clearfix">
+                  <button type="button" id="cancelButton"class="cancelbtn">Cancel</button>
+                  <button type="button" class="deletebtn">Delete</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/modify_Account.js"></script>
+</body>
+
+</html>
