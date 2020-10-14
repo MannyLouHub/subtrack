@@ -4,7 +4,7 @@
 $(() => {
   $("#submitBtn").on("click", event => {
     // Make sure to preventDefault on a submit event.
-    event.preventDefault();
+    // event.preventDefault();
 
     const customSub = {
       // custom_name: $("#customSub")

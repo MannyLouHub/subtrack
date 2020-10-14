@@ -57,6 +57,8 @@ module.exports = function (app) {
       price: req.body.price,
       description: req.body.description,
       UserId: req.user.id
+    }).then(function (custom){
+      res.json(custom);
     });
   });
   app.get("/api/services", isAuthenticated, (req, res) => {
