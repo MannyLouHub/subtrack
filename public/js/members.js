@@ -32,6 +32,7 @@ async function services() {
           url: "api/members/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -64,7 +65,7 @@ async function services() {
   })
 }
 
-async function userSubs() {
+async function userSubs()   {
   return $.get("/api/usersubs").then(data => {
     console.log(data);
     const rows = [];
@@ -95,6 +96,7 @@ async function userSubs() {
           url: "api/usersubs/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -157,6 +159,7 @@ async function customSubs() {
           url: "api/customservice/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -196,6 +199,7 @@ async function yourServices() {
 }
 
 async function sumTotal() {
+  monthlyTotal.innerHTML=""
 $.get("/api/usersum").then(data => {
   monthlyTotal.innerHTML=`<h1>Monthly Total: $${data}</h1>`
 console.log(data);
