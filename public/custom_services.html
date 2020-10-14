@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Make a Custom Subscription</h2>
-        <form class="create-form">
+        <form class="create-form" onsubmit="return false">
           <div class="form-group">
             <label for="text">Add subscription name here</label>
             <input type="" class="form-control" id="customName-input" placeholder="Name of Subscription">
@@ -34,7 +34,7 @@
             <label for="">Price</label>
             <input type="" class="form-control" id="customPrice-input" placeholder="Enter Price Here">
           </div>
-          <button type="submit" class="btn btn-default">Add</button>
+          <button type="submit" class="btn btn-default" id="submitBtn">Add</button>
         </form>
         <br />
         <!-- <p>Or sign up <a href="/">here</a></p> -->
