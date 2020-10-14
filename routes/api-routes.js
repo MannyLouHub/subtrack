@@ -57,7 +57,7 @@ module.exports = function (app) {
       price: req.body.price,
       description: req.body.description,
       UserId: req.user.id
-    }).then(function (custom){
+    }).then(function (custom) {
       res.json(custom);
     });
   });
@@ -68,7 +68,7 @@ module.exports = function (app) {
   })
   app.get("/api/customservices", isAuthenticated, (req, res) => {
     db.Custom_services.findAll({
-      order:[["updatedAt", "DESC"]],
+      order: [["updatedAt", "DESC"]],
       where: {
         UserId: req.user.id
       }
@@ -79,7 +79,7 @@ module.exports = function (app) {
   app.get("/api/usersubs", isAuthenticated, (req, res) => {
     db.User_subs.findAll({
       include: [db.Sub_Services],
-      order:[["updatedAt", "DESC"]],
+      order: [["updatedAt", "DESC"]],
       where: {
         UserId: req.user.id
       },
@@ -106,7 +106,7 @@ module.exports = function (app) {
   })
   app.delete("/api/customservice/:id", (req, res) => {
     db.Custom_services.destroy({
-      where:{
+      where: {
         UserId: req.user.id,
         id: req.params.id,
       },
@@ -117,7 +117,7 @@ module.exports = function (app) {
 
   app.delete("/api/usersubs/:id", (req, res) => {
     db.User_subs.destroy({
-      where:{
+      where: {
         UserId: req.user.id,
         id: req.params.id,
       },
@@ -125,4 +125,32 @@ module.exports = function (app) {
       res.json(data);
     })
   })
+  app.get("/api/usersum/", async (req, res) => {
+
+    const userSubsSumPromise = db.User_subs.findAll( {
+      include: [db.Sub_Services],
+      where: {
+        UserId: req.user.id
+      }
+    }).then(function (data) {
+      let sum = 0;
+      data.forEach((x) => sum += +x.Sub_Service.dataValues.price );
+      return sum;
+    })
+    const customSubsSumPromise = db.Custom_services.findAll({
+      where:{
+        UserId: req.user.id
+      }
+    }).then(function (data){
+      let sum = 0;
+      data.forEach((x) => sum += +x.dataValues.price );
+      return sum;
+    })
+
+    const [userSubsSum, customSubsSum] = await Promise.all([userSubsSumPromise,customSubsSumPromise])
+    res.json((userSubsSum + customSubsSum).toFixed(2))
+  });
+
+
 };
+

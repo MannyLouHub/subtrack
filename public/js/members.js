@@ -1,5 +1,6 @@
 const subsTable = document.getElementById('subsTable')
 const yourSubs = document.getElementById("yourSubs")
+const monthlyTotal = document.getElementById("monthlyTotal")
 
 async function services() {
   subsTable.innerHTML = ""
@@ -194,6 +195,13 @@ async function yourServices() {
   yourSubs.append(...customSubsData, ...userSubsData);
 }
 
+async function sumTotal() {
+$.get("/api/usersum").then(data => {
+  monthlyTotal.innerHTML=`<h1>Monthly Total: $${data}</h1>`
+console.log(data);
+})
+}
+
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -203,5 +211,6 @@ $(document).ready(() => {
 
   services();
   yourServices();
+  sumTotal();
 
 });
