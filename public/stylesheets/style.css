@@ -8,3 +8,8 @@ form.login {
   border-radius: 25px;
   text-align: center;
 }
+#subsTable {
+  margin-right: 0;
+  border: 0px solid black;
+  color: #0C0C0C;
+}

@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    User.hasMany(models.Custom_serives, {
+    User.hasMany(models.Custom_services, {
       foreignKey: {
         allowNull: false,
       }
