@@ -1,8 +1,12 @@
 /* eslint-disable camelcase */
 module.exports = function(sequelize, DataTypes) {
   // eslint-disable-next-line camelcase
-  const Custom_serives = sequelize.define("Custom_serives", {
+  const Custom_services = sequelize.define("Custom_services", {
     name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    description: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -12,12 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   ////Creating Custom_Services Association
-  Custom_serives.associate = function(models) {
-    Custom_serives.belongsTo(models.User, {
+  Custom_services.associate = function(models) {
+    Custom_services.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Custom_serives;
+  return Custom_services;
 };

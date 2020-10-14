@@ -2,32 +2,14 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-/* Set a style for all buttons */
-button {
-  padding: 14px 20px;
-  color: white;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 40%;
-  opacity: 0.9;
+#logos {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  text-align: center;
 }
-
-button:hover {
-  opacity:1;
+#subsTable {
+  margin-right: 0;
+  border: 0px solid black;
+  color: #0C0C0C;
 }
-/* Add a color to the delete button */
-.deletebtn {
-  background-color: #f44336;
-}
-/* Add a color to the cancel button */
-.cancelbtn {
-  background-color: #ccc;
-  color: black;
-}
-/* Float cancel and delete buttons and add an equal width */
-.cancelbtn, .deletebtn {
-  float: left;
-  width: 50%;
-}
-
