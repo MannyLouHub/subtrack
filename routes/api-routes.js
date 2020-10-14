@@ -66,6 +66,7 @@ module.exports = function (app) {
   })
   app.get("/api/customservices", isAuthenticated, (req, res) => {
     db.Custom_services.findAll({
+      order:[["updatedAt", "DESC"]],
       where: {
         UserId: req.user.id
       }
@@ -76,6 +77,7 @@ module.exports = function (app) {
   app.get("/api/usersubs", isAuthenticated, (req, res) => {
     db.User_subs.findAll({
       include: [db.Sub_Services],
+      order:[["updatedAt", "DESC"]],
       where: {
         UserId: req.user.id
       },
