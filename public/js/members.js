@@ -1,15 +1,15 @@
-const subsTable = document.getElementById('subsTable')
-const yourSubs = document.getElementById("yourSubs")
-const monthlyTotal = document.getElementById("monthlyTotal")
+const subsTable = document.getElementById("subsTable");
+const yourSubs = document.getElementById("yourSubs");
+const monthlyTotal = document.getElementById("monthlyTotal");
 
 async function services() {
-  subsTable.innerHTML = ""
+  subsTable.innerHTML = "";
   return $.get("/api/services").then(data => {
     for (let i = 0; i < 10; i++) {
-      const subName = data[i].name
-      const subPrice = data[i].price
-      const subCategory = data[i].category
-      const subIcon = data[i].icon
+      const subName = data[i].name;
+      const subPrice = data[i].price;
+      const subCategory = data[i].category;
+      const subIcon = data[i].icon;
 
       const tr = document.createElement("tr");
       const tdSub = document.createElement("td");
@@ -18,28 +18,27 @@ async function services() {
       const tdAdd = document.createElement("td");
       const button = document.createElement("button");
       const img = document.createElement("img");
-      const figure = document.createElement('figure');
-      const figCaption = document.createElement("figcaption")
-      const iTag = document.createElement('i')
+      const figure = document.createElement("figure");
+      const figCaption = document.createElement("figcaption");
+      const iTag = document.createElement("i");
 
-      iTag.classList.add("fas", "fa-plus")
+      iTag.classList.add("fas", "fa-plus");
 
-      button.classList.add("addBtn")
+      button.classList.add("addBtn");
       button.setAttribute("id", data[i].id);
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function() {
         $.ajax({
           method: "POST",
           url: "api/members/" + this.id
-        }).then(function () {
+        }).then(() => {
           yourServices();
-        })
-      })
-
+        });
+      });
 
       img.setAttribute("src", subIcon);
       img.setAttribute("alt", subName);
       img.setAttribute("id", "logos");
-      img.classList.add("imgLogo")
+      img.classList.add("imgLogo");
 
       tr.classList.add("row", "text-center");
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
@@ -51,17 +50,16 @@ async function services() {
       figure.append(img, figCaption);
       tdSub.append(figure);
 
-      tdCategory.append(subCategory)
-      tdPrice.append(subPrice)
+      tdCategory.append(subCategory);
+      tdPrice.append(subPrice);
 
       button.append(iTag);
-      tdAdd.append(button)
+      tdAdd.append(button);
 
       tr.append(tdSub, tdCategory, tdPrice, tdAdd);
       subsTable.append(tr);
-
     }
-  })
+  });
 }
 
 async function userSubs() {
@@ -69,10 +67,10 @@ async function userSubs() {
     console.log(data);
     const rows = [];
     for (let i = 0; i < data.length; i++) {
-      const subName = data[i].Sub_Service.name
-      const subPrice = data[i].Sub_Service.price
-      const subCategory = data[i].Sub_Service.category
-      const subIcon = data[i].Sub_Service.icon
+      const subName = data[i].Sub_Service.name;
+      const subPrice = data[i].Sub_Service.price;
+      const subCategory = data[i].Sub_Service.category;
+      const subIcon = data[i].Sub_Service.icon;
 
       const tr = document.createElement("tr");
       const tdSub = document.createElement("td");
@@ -81,28 +79,27 @@ async function userSubs() {
       const tdAdd = document.createElement("td");
       const button = document.createElement("button");
       const img = document.createElement("img");
-      const figure = document.createElement('figure');
-      const figCaption = document.createElement("figcaption")
-      const iTag = document.createElement('i')
+      const figure = document.createElement("figure");
+      const figCaption = document.createElement("figcaption");
+      const iTag = document.createElement("i");
 
-      iTag.classList.add("fas", "fa-minus")
+      iTag.classList.add("fas", "fa-minus");
 
-      button.classList.add("removeBtn")
+      button.classList.add("removeBtn");
       button.setAttribute("id", data[i].id);
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function() {
         $.ajax({
           method: "DELETE",
           url: "api/usersubs/" + this.id
-        }).then(function () {
+        }).then(() => {
           yourServices();
-        })
-      })
-
+        });
+      });
 
       img.setAttribute("src", subIcon);
       img.setAttribute("alt", subName);
       img.setAttribute("id", "logos");
-      img.classList.add("imgLogo")
+      img.classList.add("imgLogo");
 
       tr.classList.add("row", "text-center");
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
@@ -114,11 +111,11 @@ async function userSubs() {
       figure.append(img, figCaption);
       tdSub.append(figure);
 
-      tdCategory.append(subCategory)
-      tdPrice.append(subPrice)
+      tdCategory.append(subCategory);
+      tdPrice.append(subPrice);
 
       button.append(iTag);
-      tdAdd.append(button)
+      tdAdd.append(button);
 
       tr.append(tdSub, tdCategory, tdPrice, tdAdd);
       rows.push(tr);
@@ -131,9 +128,9 @@ async function customSubs() {
   return $.get("/api/customservices").then(data => {
     const rows = [];
     for (let i = 0; i < data.length; i++) {
-      const subName = data[i].name
-      const subPrice = data[i].price
-      const subDescription = data[i].description
+      const subName = data[i].name;
+      const subPrice = data[i].price;
+      const subDescription = data[i].description;
       // const subIcon = data[i].icon
 
       const tr = document.createElement("tr");
@@ -143,28 +140,27 @@ async function customSubs() {
       const tdAdd = document.createElement("td");
       const button = document.createElement("button");
       const img = document.createElement("img");
-      const figure = document.createElement('figure');
-      const figCaption = document.createElement("figcaption")
-      const iTag = document.createElement('i')
+      const figure = document.createElement("figure");
+      const figCaption = document.createElement("figcaption");
+      const iTag = document.createElement("i");
 
-      iTag.classList.add("fas", "fa-minus")
+      iTag.classList.add("fas", "fa-minus");
 
-      button.classList.add("removeBtn")
+      button.classList.add("removeBtn");
       button.setAttribute("id", data[i].id);
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function() {
         $.ajax({
           method: "DELETE",
           url: "api/customservice/" + this.id
-        }).then(function () {
+        }).then(() => {
           yourServices();
-        })
-      })
-
+        });
+      });
 
       img.setAttribute("src", "/img/penOnPaper.png");
       img.setAttribute("alt", subName);
       img.setAttribute("id", "logos");
-      img.classList.add("imgLogo")
+      img.classList.add("imgLogo");
 
       tr.classList.add("row", "text-center", "m-3");
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
@@ -176,11 +172,11 @@ async function customSubs() {
       figure.append(img, figCaption);
       tdSub.append(figure);
 
-      tdDescription.append(subDescription)
-      tdPrice.append(subPrice)
+      tdDescription.append(subDescription);
+      tdPrice.append(subPrice);
 
       button.append(iTag);
-      tdAdd.append(button)
+      tdAdd.append(button);
 
       tr.append(tdSub, tdDescription, tdPrice, tdAdd);
       rows.push(tr);
@@ -190,16 +186,19 @@ async function customSubs() {
 }
 
 async function yourServices() {
-  yourSubs.innerHTML = ""
-  const [userSubsData, customSubsData] = await Promise.all([userSubs(), customSubs()]);
+  yourSubs.innerHTML = "";
+  const [userSubsData, customSubsData] = await Promise.all([
+    userSubs(),
+    customSubs()
+  ]);
   yourSubs.append(...customSubsData, ...userSubsData);
 }
 
 async function sumTotal() {
-$.get("/api/usersum").then(data => {
-  monthlyTotal.innerHTML=`<h1>Monthly Total: $${data}</h1>`
-console.log(data);
-})
+  $.get("/api/usersum").then(data => {
+    monthlyTotal.innerHTML = `<h1>Monthly Total: $${data}</h1>`;
+    console.log(data);
+  });
 }
 
 $(document).ready(() => {
@@ -212,5 +211,4 @@ $(document).ready(() => {
   services();
   yourServices();
   sumTotal();
-
 });

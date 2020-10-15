@@ -25,13 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: {
         allowNull: false,
       }
-<<<<<<< HEAD
     });
   };
-  return Sub_serives;
-=======
-    })
-  }
   return Sub_services;
->>>>>>> 0f6ac9c685ad3330f034cb9f00cf68c7d2e6c897
 };
