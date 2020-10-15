@@ -5,25 +5,39 @@ const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  app.get("/", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
-  });
+    app.get("/", (req, res) => {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            res.redirect("/members");
+        }
+        res.sendFile(path.join(__dirname, "../public/login.html"));
+    });
 
-  app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
-  });
+    app.get("/signup", (req, res) => {
+        // If the user already has an account send them to the members page
+        if (req.user) {
+            res.redirect("/members");
+        } <<
+        << << < HEAD
+        res.sendFile(path.join(__dirname, "../public/login.html")); ===
+        === =
+        res.sendFile(path.join(__dirname, "../public/signup.html")); >>>
+        >>> > 7 deee05f52fa6a5c9cb31db4a7dd5b244649d234
+    });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
-  });
+    // Here we've add our isAuthenticated middleware to this route.
+    // If a user who is not logged in tries to access this route they will be redirected to the signup page
+    app.get("/members", isAuthenticated, (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/members.html"));
+    }); <<
+    << << < HEAD
+        ===
+        === =
+        app.get("/custom_services", isAuthenticated, (req, res) => {
+            res.sendFile(path.join(__dirname, "../public/custom_services.html"));
+        });
+    app.get("/modify_Account", isAuthenticated, (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/modify_Account.html"));
+    }); >>>
+    >>> > 7 deee05f52fa6a5c9cb31db4a7dd5b244649d234
 };
