@@ -9,15 +9,12 @@
     },
     "test": {
         "username": "root",
-        <<
-        << << < HEAD "password": null,
+        "password": null,
         "database": "database_test",
-        ===
-        === =
+
         "password": "root",
         "database": "subtrack_db",
-        >>>
-        >>> > 7 deee05f52fa6a5c9cb31db4a7dd5b244649d234 "host": "127.0.0.1",
+        "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {

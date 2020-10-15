@@ -1,11 +1,9 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-const passport = require("../config/passport"); <<
-<< << < HEAD
-    ===
-    === =
-    const isAuthenticated = require("../config/middleware/isAuthenticated"); >>>
->>> > 7 deee05f52fa6a5c9cb31db4a7dd5b244649d234
+const passport = require("../config/passport");
+
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 
 module.exports = function(app) {
     // Using the passport.authenticate middleware with our local strategy.
@@ -54,20 +52,17 @@ module.exports = function(app) {
                 id: req.user.id
             });
         }
-    }); <<
-    << << < HEAD
-        ===
-        === =
-        app.post("/api/custom_services", isAuthenticated, (req, res) => {
-            db.Custom_services.create({
-                name: req.body.name,
-                price: req.body.price,
-                description: req.body.description,
-                UserId: req.user.id
-            }).then(custom => {
-                res.json(custom);
-            });
+    });
+    app.post("/api/custom_services", isAuthenticated, (req, res) => {
+        db.Custom_services.create({
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            UserId: req.user.id
+        }).then(custom => {
+            res.json(custom);
         });
+    });
     app.get("/api/services", isAuthenticated, (req, res) => {
         db.Sub_Services.findAll().then(dbSubs => {
             res.json(dbSubs);
@@ -162,6 +157,5 @@ module.exports = function(app) {
             customSubsSumPromise
         ]);
         res.json((userSubsSum + customSubsSum).toFixed(2));
-    }); >>>
-    >>> > 7 deee05f52fa6a5c9cb31db4a7dd5b244649d234
+    });
 };
