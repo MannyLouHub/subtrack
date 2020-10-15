@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 require("dotenv").config();
 const db = require("./models");
-=======
-require('dotenv').config();
-const db = require("./models")
->>>>>>> 052fca9b685d2fc0cfca40ac9469cb704c069ef0
 
 db.sequelize.sync().then(() => {
   db.Sub_Services.create({

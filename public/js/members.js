@@ -32,15 +32,9 @@ async function services() {
           url: "api/members/" + this.id
         }).then(() => {
           yourServices();
-<<<<<<< HEAD
+          sumTotal();
         });
       });
-=======
-          sumTotal();
-        })
-      })
-
->>>>>>> 052fca9b685d2fc0cfca40ac9469cb704c069ef0
 
       img.setAttribute("src", subIcon);
       img.setAttribute("alt", subName);
@@ -69,7 +63,7 @@ async function services() {
   });
 }
 
-async function userSubs()   {
+async function userSubs() {
   return $.get("/api/usersubs").then(data => {
     console.log(data);
     const rows = [];
@@ -100,15 +94,9 @@ async function userSubs()   {
           url: "api/usersubs/" + this.id
         }).then(() => {
           yourServices();
-<<<<<<< HEAD
+          sumTotal();
         });
       });
-=======
-          sumTotal();
-        })
-      })
-
->>>>>>> 052fca9b685d2fc0cfca40ac9469cb704c069ef0
 
       img.setAttribute("src", subIcon);
       img.setAttribute("alt", subName);
@@ -168,15 +156,9 @@ async function customSubs() {
           url: "api/customservice/" + this.id
         }).then(() => {
           yourServices();
-<<<<<<< HEAD
+          sumTotal();
         });
       });
-=======
-          sumTotal();
-        })
-      })
-
->>>>>>> 052fca9b685d2fc0cfca40ac9469cb704c069ef0
 
       img.setAttribute("src", "/img/penOnPaper.png");
       img.setAttribute("alt", subName);
@@ -216,18 +198,11 @@ async function yourServices() {
 }
 
 async function sumTotal() {
-<<<<<<< HEAD
+  monthlyTotal.innerHTML = "";
   $.get("/api/usersum").then(data => {
     monthlyTotal.innerHTML = `<h1>Monthly Total: $${data}</h1>`;
     console.log(data);
   });
-=======
-  monthlyTotal.innerHTML=""
-$.get("/api/usersum").then(data => {
-  monthlyTotal.innerHTML=`<h1>Monthly Total: $${data}</h1>`
-console.log(data);
-})
->>>>>>> 052fca9b685d2fc0cfca40ac9469cb704c069ef0
 }
 
 $(document).ready(() => {
