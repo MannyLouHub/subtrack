@@ -10,16 +10,22 @@ $(() => {
       // custom_name: $("#customSub")
       //   .val()
       //   .trim()
-      name: $('#customName-input').val().trim(),
-      price: $('#customPrice-input').val().trim(),
-      description: $('#customDescription-input').val().trim()
+      name: $("#customName-input")
+        .val()
+        .trim(),
+      price: $("#customPrice-input")
+        .val()
+        .trim(),
+      description: $("#customDescription-input")
+        .val()
+        .trim()
     };
 
     // Send the POST request.
     $.ajax("/api/custom_services", {
       type: "POST",
       data: customSub
-    }).then(function() {
+    }).then(() => {
       console.log("created new Subscription");
       // Reload the page to get the updated list
       window.location.replace("/members");

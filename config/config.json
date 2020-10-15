@@ -3,13 +3,14 @@
     "username": "root",
     "password": "root",
     "database": "subtrack_db",
+    "port":8889,
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "database_test",
+    "database": "subtrack_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
