@@ -125,6 +125,23 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+  //delete a user
+  app.delete("/api/userdelete", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // we now have access to the user ID via req.user.id
+      db.User.destroy({
+        where: {
+          id: req.user.id // <---- look here
+        }
+      }).then(data => {
+        res.json(data);
+      });
+    }
+  });
+  //
   app.get("/api/usersum/", async (req, res) => {
     const userSubsSumPromise = db.User_subs.findAll({
       include: [db.Sub_Services],
