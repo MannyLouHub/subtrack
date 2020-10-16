@@ -216,3 +216,6 @@ $(document).ready(() => {
   yourServices();
   sumTotal();
 });
+document.getElementById("addCustom").onclick = function() {
+  location.href = "/custom_services";
+};
