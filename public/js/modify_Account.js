@@ -1,15 +1,3 @@
-$(() => {
-  $(".deleteButton").on("click", function(event) {
-    event.preventDefault();
-    const id = $(this).data("id");
-
-    //send delete request
-    $.ajax({
-      type: "DELETE",
-      url: "/api/user_data/" + id
-    }).then(location.reload());
-  });
-});
 //delete account button
 const destroyAccount = document.getElementById("id01");
 const cancelButton = document.getElementById("cancelButton");
@@ -26,3 +14,9 @@ cancelButton.onclick = function(event) {
     clearBox.style.display = "none";
   }
 };
+
+$("#deleteButton").on("click", async e => {
+  e.preventDefault();
+  const response = await $.ajax({ type: "DELETE", url: "/api/userdelete" });
+  console.log(response);
+});
