@@ -5,7 +5,7 @@ const monthlyTotal = document.getElementById("monthlyTotal")
 async function services() {
   subsTable.innerHTML = ""
   return $.get("/api/services").then(data => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < data.length; i++) {
       const subName = data[i].name
       const subPrice = data[i].price
       const subCategory = data[i].category
@@ -32,6 +32,7 @@ async function services() {
           url: "api/members/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -41,11 +42,16 @@ async function services() {
       img.setAttribute("id", "logos");
       img.classList.add("imgLogo")
 
-      tr.classList.add("row", "text-center");
+      tr.classList.add("col-12", "row", "text-center");
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
       tdCategory.classList.add("col-3", "d-none", "d-sm-block");
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
       tdAdd.classList.add("col-3", "d-none", "d-sm-block");
+
+      //tdAdd.setAttribute("style", "width: 250px; border: none;")
+      //tdPrice.setAttribute("style", "width: 250px;")
+      //tdCategory.setAttribute("style", "width: 250px;")
+      //tdSub.setAttribute("style", "width: 350px; padding-bottom: 15px;")
 
       figCaption.append(subName);
       figure.append(img, figCaption);
@@ -64,7 +70,7 @@ async function services() {
   })
 }
 
-async function userSubs() {
+async function userSubs()   {
   return $.get("/api/usersubs").then(data => {
     console.log(data);
     const rows = [];
@@ -95,6 +101,7 @@ async function userSubs() {
           url: "api/usersubs/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -157,6 +164,7 @@ async function customSubs() {
           url: "api/customservice/" + this.id
         }).then(function () {
           yourServices();
+          sumTotal();
         })
       })
 
@@ -170,7 +178,7 @@ async function customSubs() {
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
       tdDescription.classList.add("col-3", "d-none", "d-sm-block");
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
-      tdAdd.classList.add("col-3", "d-none", "d-sm-block");
+      tdAdd.classList.add("col-3", "d-none", "d-sm-block").css("background-color:none");
 
       figCaption.append(subName);
       figure.append(img, figCaption);
@@ -196,8 +204,9 @@ async function yourServices() {
 }
 
 async function sumTotal() {
+  monthlyTotal.innerHTML=""
 $.get("/api/usersum").then(data => {
-  monthlyTotal.innerHTML=`<h1>Monthly Total: $${data}</h1>`
+  monthlyTotal.innerHTML=`<p>Total: $${data}</p>`
 console.log(data);
 })
 }
@@ -214,3 +223,4 @@ $(document).ready(() => {
   sumTotal();
 
 });
+

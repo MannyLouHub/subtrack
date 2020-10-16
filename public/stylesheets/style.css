@@ -2,14 +2,21 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+body {
+  position: relative;
+}
 #logos {
   width: 40px;
   height: 40px;
   border-radius: 25px;
   text-align: center;
 }
-#subsTable {
-  margin-right: 0;
+.table-container {
   border: 0px solid black;
   color: #0C0C0C;
+  overflow: auto;
+ height: 450px !important;
+ width: 600px;
+ display: inline-block;
+ 
 }
