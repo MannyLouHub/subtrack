@@ -50,7 +50,7 @@ async function services() {
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
       tdAdd.classList.add("col-3", "d-none", "d-sm-block");
 
-      tr.setAttribute("style", "border-bottom: 1px solid  #B9B7B7; line-height")
+      tr.setAttribute("style", "border-bottom: 1px solid  #B9B7B7;")
       tdSub.setAttribute("style", "width:100px; height:100px;")
 
       a.append(img);
