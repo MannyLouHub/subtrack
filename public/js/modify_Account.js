@@ -21,3 +21,31 @@ $("#deleteButton").on("click", async e => {
   console.log(response);
   window.location.replace("/signup");
 });
+
+
+//Added styling JS
+const navSlide = () => {
+  const mobileView = document.querySelector(".mobile-view");
+  const nav = document.querySelector(".nav-links");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  
+  mobileView.addEventListener("click", ()=>{
+  //Toggle Nav
+    nav.classList.toggle("nav-active");
+
+  //Animate Links
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = ""
+      } else {
+      link.style.animation = `navLinkFade 2.5s ease forwards ${index/5+0.1}s`;
+      }
+    });
+    //Mobile view animation
+    mobileView.classList.toggle("toggle");
+  });
+  
+
+}
+
+navSlide();

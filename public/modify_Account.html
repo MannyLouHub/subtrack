@@ -10,18 +10,26 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
-        <a class="navbar-brand" href="/members">
-          Back to profile
-        </a>
-      </div>
+  <nav class="navbar navbar-default" style="background-color: #333333; border: none;">
+    <div class="navbar-header">
+        <h1 style="color: white; font-size: 255%;">SUBTRACK</h1>
     </div>
-    <div>
+        <ul class="nav-links" >
+          <a class="navbar-brand" href="/logout" style="color:white;">
+          Logout
+          </a>
+          <a class="navbar-brand" href="/members" style="color:white;">
+          Back to profile
+          </a>
+        </ul>
+        <div class="mobile-view">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </div>
+    
+    
   </nav>
   <div class="container" id="modifyAccount">
     <div class="row">
@@ -52,6 +60,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/modify_Account.js"></script>
+  
 </body>
 
 </html>
