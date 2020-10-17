@@ -5,22 +5,33 @@
     <title>Passport Authentication</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
     <link href="stylesheets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/logout">
-                Logout
-            </a>
-        </div>
+<nav class="navbar navbar-default" style="background-color: #333333; border: none;">
+    <div class="navbar-header">
+        <h1 style="color: white; font-size: 255%;">SUBTRACK</h1>
+    </div>
+
+    <ul class="nav-links" >
+        <a class="navbar-brand" style="color:white;" href="/modify_Account">
+            Modify Account
+        </a>
+        <a class="navbar-brand" style="color:white" href="/logout">
+            Logout
+         </a>
+    </ul>
+    <div class="mobile-view">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
     </div>
 </nav>
-<h1 style="margin-top: 35px; margin-left: 55px; font-size: 50px;, cursive; color: #0C0C0C">SUBTRACK</h1><h2 style="text-align: right; padding-right: 15px; font-size: 20px;">Welcome <span class="member-name"></span></h2>
+<h2 style="text-align: right; padding-right: 15px; font-size: 19px; font-family: 'Poppins', sans-serif;">Welcome <span class="member-name"></span></h2>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -28,11 +39,17 @@
 
         </div>
     </div>
+    </div>
+</nav>
+
+<div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="text-center"><h1 id="monthlyTotal">Monthly Total:</h1><a href="custom_services.html">custom services</a></div>
-            <div class="text-center"><h2>Your Subscription Services</h2></div>
-            <table class="table table-hover" id="yourSubs">
+
+            <div class="text-center"><h2 style="font-family: 'Poppins', sans-serif;">Your Subscription Services</h2></div>
+            <button class="btn btn-primary" id="total-btn" style="padding: 0;"><h6 id="monthlyTotal" style="color: #bbbbbb;">Monthly Total:</h6></button>
+            <div class="table-container" >
+            <table class="table table-hover" id="yourSubs" >
                 <thead>
                 <tr class="row text-center">
                     <th class="col-3 d-none d-sm-block text-center">Subscription</th>
@@ -42,10 +59,13 @@
                 </tr>
                 </thead>
             </table>
+            </div>
         </div>
-        <div class="col-md-6">
 
-            <div class="text-center"><h2>Subscription Services</h2></div>
+        <div class="col-md-6" style="padding-left: 3%;">
+
+            <div class="text-center"><h2 style="font-family: 'Poppins', sans-serif;">Subscription Services</h2></div>
+            <button class="btn btn-primary" href="custom_services.html"id="addCustom">Add custom services</button>
             <div class="table-container">
             <table class="table table-hover" id="subsTable">
                 <thead>

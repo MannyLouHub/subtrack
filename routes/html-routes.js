@@ -29,4 +29,7 @@ module.exports = function(app) {
   app.get("/custom_services", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/custom_services.html"));
   });
+  app.get("/modify_Account", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/modify_Account.html"));
+  });
 };
