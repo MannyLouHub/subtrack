@@ -183,9 +183,13 @@ async function customSubs() {
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
       tdDescription.classList.add("col-3", "d-none", "d-sm-block");
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
-      tdAdd.classList
-        .add("col-3", "d-none", "d-sm-block")
-        .css("background-color:none");
+      tdAdd.classList.add("col-3", "d-none", "d-sm-block");
+
+      tr.setAttribute(
+        "style",
+        "border-bottom: 1px solid  #B9B7B7; line-height"
+      );
+      tdSub.setAttribute("style", "width:100px; height:100px;");
 
       figCaption.append(subName);
       figure.append(img, figCaption);
