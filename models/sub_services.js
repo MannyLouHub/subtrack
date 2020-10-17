@@ -19,6 +19,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10,2),
       allowNull: false,
     },
+    link: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
   Sub_services.associate = function (models) {
     Sub_services.hasMany(models.User_subs, {
