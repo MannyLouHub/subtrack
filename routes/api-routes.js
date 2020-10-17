@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
@@ -126,18 +127,31 @@ module.exports = function(app) {
     });
   });
   //delete a user
-  app.delete("/api/userdelete", (req, res) => {
+  app.delete("/api/userdelete/:id", (req, res) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // we now have access to the user ID via req.user.id
-      db.User.destroy({
+      db.Custom_services.destroy({
         where: {
-          id: req.user.id // <---- look here
+          UserId: req.user.id
         }
       }).then(data => {
-        res.json(data);
+        db.User_subs.destroy({
+          where: {
+            UserId: req.user.id // <---- look here
+          }
+        }).then(data2 => {
+          // we now have access to the user ID via req.user.id
+          db.User.destroy({
+            where: {
+              id: req.user.id // <---- look here
+            }
+          }).then(data => {
+            req.logout();
+            res.json(data);
+          });
+        });
       });
     }
   });

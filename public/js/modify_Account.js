@@ -17,6 +17,7 @@ cancelButton.onclick = function(event) {
 
 $("#deleteButton").on("click", async e => {
   e.preventDefault();
-  const response = await $.ajax({ type: "DELETE", url: "/api/userdelete" });
+  const response = await $.ajax({ type: "DELETE", url: "/api/userdelete/:id" });
   console.log(response);
+  window.location.replace("/signup");
 });
