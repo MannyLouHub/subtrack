@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const subsTable = document.getElementById("subsTable");
 const yourSubs = document.getElementById("yourSubs");
 const monthlyTotal = document.getElementById("monthlyTotal");
@@ -6,13 +7,13 @@ async function services() {
   subsTable.innerHTML = "";
   return $.get("/api/services").then(data => {
     for (let i = 0; i < data.length; i++) {
-      const subName = data[i].name
-      const subPrice = data[i].price
-      const subCategory = data[i].category
-      const subIcon = data[i].icon
-      const subLink = data[i].link
-      
-      const a = document.createElement("a")
+      const subName = data[i].name;
+      const subPrice = data[i].price;
+      const subCategory = data[i].category;
+      const subIcon = data[i].icon;
+      const subLink = data[i].link;
+
+      const a = document.createElement("a");
       const tr = document.createElement("tr");
       const tdSub = document.createElement("td");
       const tdCategory = document.createElement("td");
@@ -38,7 +39,7 @@ async function services() {
         });
       });
 
-      a.setAttribute("href", subLink)
+      a.setAttribute("href", subLink);
       img.setAttribute("src", subIcon);
       img.setAttribute("alt", subName);
       img.setAttribute("id", "logos");
@@ -50,8 +51,8 @@ async function services() {
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
       tdAdd.classList.add("col-3", "d-none", "d-sm-block");
 
-      tr.setAttribute("style", "border-bottom: 1px solid  #B9B7B7;")
-      tdSub.setAttribute("style", "width:100px; height:100px;")
+      tr.setAttribute("style", "border-bottom: 1px solid  #B9B7B7;");
+      tdSub.setAttribute("style", "width:100px; height:100px;");
 
       a.append(img);
       figCaption.append(subName);
@@ -116,8 +117,11 @@ async function userSubs() {
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
       tdAdd.classList.add("col-3", "d-none", "d-sm-block");
 
-      tr.setAttribute("style", "border-bottom: 1px solid  #B9B7B7; line-height")
-      tdSub.setAttribute("style", "width:100px; height:100px;")
+      tr.setAttribute(
+        "style",
+        "border-bottom: 1px solid  #B9B7B7; line-height"
+      );
+      tdSub.setAttribute("style", "width:100px; height:100px;");
 
       figCaption.append(subName);
       figure.append(img, figCaption);
@@ -179,7 +183,9 @@ async function customSubs() {
       tdSub.classList.add("col-3", "d-none", "d-sm-block");
       tdDescription.classList.add("col-3", "d-none", "d-sm-block");
       tdPrice.classList.add("col-3", "d-none", "d-sm-block");
-      tdAdd.classList.add("col-3", "d-none", "d-sm-block").css("background-color:none");
+      tdAdd.classList
+        .add("col-3", "d-none", "d-sm-block")
+        .css("background-color:none");
 
       figCaption.append(subName);
       figure.append(img, figCaption);
@@ -235,31 +241,30 @@ const navSlide = () => {
   const mobileView = document.querySelector(".mobile-view");
   const nav = document.querySelector(".nav-links");
   const navLinks = document.querySelectorAll(".nav-links a");
-  
-  mobileView.addEventListener("click", ()=>{
-  //Toggle Nav
+
+  mobileView.addEventListener("click", () => {
+    //Toggle Nav
     nav.classList.toggle("nav-active");
 
-  //Animate Links
+    //Animate Links
     navLinks.forEach((link, index) => {
       if (link.style.animation) {
-        link.style.animation = ""
+        link.style.animation = "";
       } else {
-      link.style.animation = `navLinkFade 2.5s ease forwards ${index/5+0.1}s`;
+        link.style.animation = `navLinkFade 2.5s ease forwards ${index / 5 +
+          0.1}s`;
       }
     });
     //Mobile view animation
     mobileView.classList.toggle("toggle");
   });
-  
-
-}
+};
 
 navSlide();
 
 function myFunction() {
   /* Get the text field */
-  var copyText = document.getElementById("myInput");
+  const copyText = document.getElementById("myInput");
 
   /* Select the text field */
   copyText.select();
